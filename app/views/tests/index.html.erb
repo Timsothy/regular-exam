@@ -1,0 +1,19 @@
+<div class='wrapper'>
+  <div class='sidebar'>
+    <%= render 'shared/sidebar' %>
+  </div>
+  <div class='main'>
+    <table>
+      <tr>
+        <th>テスト</th><th>生徒名</th><th>5教科合計</th>
+      </tr>
+      <% @tests.each do |test| %>
+        <tr>
+          <td><%= test.test_name_id %></td>
+          <td><%= test.student_id %></td>
+          <td><%= test.total_score %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
