@@ -2,4 +2,16 @@
   <div class='logo'>
     <%= link_to image_tag("regular-exam-logo.png", class:"regular-exam-logo"), root_path %>
   </div>
+  <div class='student'>
+    <% if student_signed_in? %>
+      <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="grid-6">    
+        <%= link_to '生徒登録', new_student_registration_path, class: "sign-up" %>
+        <%= link_to 'ログイン', new_student_session_path, class: "login" %>
+      </div>
+    <% end %>
+  </div>
 </div>
