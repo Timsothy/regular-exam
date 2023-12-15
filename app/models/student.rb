@@ -2,9 +2,11 @@ class Student < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :validatable
 
   has_many :tests
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :grade
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
@@ -18,4 +20,6 @@ class Student < ApplicationRecord
     validates :last_name_kana
     validates :first_name_kana
   end
+
+  validates :grade_id, numericality: { other_than: 0, message: "can't be blank" }
 end

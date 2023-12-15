@@ -29,6 +29,13 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <label class="form-text">学年</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"grade-select"}) %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
       <label class="form-text">お名前(全角)</label>
       <span class="indispensable">必須</span>
     </div>

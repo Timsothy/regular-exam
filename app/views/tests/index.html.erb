@@ -3,14 +3,18 @@
     <%= render 'shared/sidebar' %>
   </div>
   <div class='main'>
+    <div class="new-test">    
+      <%= link_to 'テスト登録', new_test_path %>
+    </div>
     <table>
       <tr>
-        <th>テスト</th><th>生徒名</th><th>5教科合計</th>
+        <th>学年</th><th>生徒名</th><th>テスト</th><th>5教科合計</th>
       </tr>
       <% @tests.each do |test| %>
         <tr>
-          <td><%= test.test_name_id %></td>
-          <td><%= test.student_id %></td>
+          <td><%= test.student.grade.name %></td>
+          <td><%= test.student.last_name %><%= test.student.first_name %></td>
+          <td><%= test.test_name.name %></td>
           <td><%= test.total_score %></td>
         </tr>
       <% end %>

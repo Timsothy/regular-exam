@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_02_020718) do
+ActiveRecord::Schema.define(version: 2023_12_07_034341) do
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "grade_id", null: false
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
@@ -24,8 +25,24 @@ ActiveRecord::Schema.define(version: 2023_12_02_020718) do
   end
 
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "test_name_id", null: false
+    t.integer "japanese_score"
+    t.integer "japanese_average_score"
+    t.integer "mathematics_score"
+    t.integer "mathematics_average_score"
+    t.integer "english_score"
+    t.integer "english_average_score"
+    t.integer "sosial_score"
+    t.integer "sosial_average_score"
+    t.integer "science_score"
+    t.integer "science_average_score"
+    t.integer "total_score"
+    t.integer "rank"
+    t.bigint "student_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_tests_on_student_id"
   end
 
+  add_foreign_key "tests", "students"
 end
