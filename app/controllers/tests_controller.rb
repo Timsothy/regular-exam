@@ -2,7 +2,7 @@ class TestsController < ApplicationController
   before_action :authenticate_student!, only: [:new, :create]
 
   def index
-    @tests = Test.all
+    @tests = Test.order("created_at DESC")
   end
 
   def show
