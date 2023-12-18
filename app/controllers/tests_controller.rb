@@ -28,7 +28,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to student_path
+      redirect_to student_path(@test.student)
     else
       render :edit
     end

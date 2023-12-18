@@ -8,7 +8,7 @@
       <div class="weight-bold-text">
           テスト名
       </div>
-      <%= form.collection_select(:test_name_id, TestName.all, :id, :name, {}, {class:"test-name-select"}) %>
+      <%= form.collection_select(:test_name_id, TestName.all, :id, :name, {}, {class:"select-box"}) %>
       <div class="weight-bold-text">
           国語(得点)
       </div>
@@ -57,8 +57,9 @@
           順位
       </div>
       <%= form.text_field :rank, class:"tests-text" %>
-      <div class="ragistration-btn">
-          <%= form.submit "登録する" ,class:"btn" %>
+      <div class="registration-btn-contents">
+        <%= form.submit "登録する" ,class:"registration-btn" %>
+        <%= link_to 'もどる', root_path, class:"back-btn" %>
       </div>
     <% end %>
   </div>

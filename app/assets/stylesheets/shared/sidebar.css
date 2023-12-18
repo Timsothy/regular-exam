@@ -4,6 +4,10 @@
   width: 20%;
 }
 
+.sidebar a {
+  text-decoration: none;
+}
+
 .regular-exam-logo {
   width: 440%;
   margin: 30%;

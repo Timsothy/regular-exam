@@ -3,9 +3,6 @@
     <%= render 'shared/sidebar' %>
   </div>
   <div class='main'>
-    <div class="new-test">    
-      <%= link_to 'テスト登録', new_test_path %>
-    </div>
     <table>
       <tr>
         <th>学年</th><th>生徒名</th><th>テスト</th><th>5教科合計</th>
@@ -21,5 +18,9 @@
         </tr>
       <% end %>
     </table>
+    <%= link_to(new_test_path, class: "test-btn") do %>
+      <span class="test-btn-text">新規テスト</span>
+      <%= image_tag 'plus-icon.png' , size: '180x50' ,class: "test-btn-icon" %>
+    <% end %>
   </div>
 </div>
