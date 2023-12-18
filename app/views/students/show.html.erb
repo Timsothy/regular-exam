@@ -1,0 +1,43 @@
+<div class='wrapper'>
+  <div class='sidebar'>
+    <%= render 'shared/sidebar' %>
+  </div>
+  <div class='main'>
+    <div class="new-test">    
+      <%= link_to 'テスト登録', new_test_path %>
+    </div>
+    <div class="student-show">
+      <table>
+        <% @tests.each do |test| %>
+        <tr>
+          <th colspan="2"><%= test.test_name.name %></th>
+        </tr>
+        <tr>
+          <td>名前</td><td><%= @student.last_name %><%= @student.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td><td><%= @student.last_name_kana %><%= @student.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>国語</td><td><%= test.japanese_score %></td>
+        </tr>
+        <tr>
+          <td>数学</td><td><%= test.mathematics_score %></td>
+        </tr>
+        <tr>
+          <td>英語</td><td><%= test.english_score %></td>
+        </tr>
+        <tr>
+          <td>社会</td><td><%= test.sosial_score %></td>
+        </tr>
+        <tr>
+          <td>理科</td><td><%= test.science_score %></td>
+        </tr>
+        <tr>
+          <td>合計</td><td><%= test.total_score %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

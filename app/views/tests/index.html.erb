@@ -13,7 +13,9 @@
       <% @tests.each do |test| %>
         <tr>
           <td><%= test.student.grade.name %></td>
-          <td><%= test.student.last_name %><%= test.student.first_name %></td>
+          <td>
+            <%= link_to "#{test.student.last_name}#{test.student.first_name}", student_path(test.student) %>
+          </td>
           <td><%= test.test_name.name %></td>
           <td><%= test.total_score %></td>
         </tr>
