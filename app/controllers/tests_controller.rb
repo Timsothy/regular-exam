@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
-  before_action :authenticate_student!, only: [:new, :create, :edit]
-  before_action :set_test, only: [:edit, :update]
-  before_action :move_to_index, only: [:edit]
+  before_action :authenticate_student!, only: [:new, :create, :edit, :destroy]
+  before_action :set_test, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
 
   def index
     @tests = Test.order("created_at DESC")
@@ -35,6 +35,8 @@ class TestsController < ApplicationController
   end
 
   def destroy
+    @test.destroy
+    redirect_to root_path
   end
 
   private
