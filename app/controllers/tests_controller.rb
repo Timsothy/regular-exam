@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
-  before_action :authenticate_student!, only: [:new, :create]
+  before_action :authenticate_student!, only: [:new, :create, :edit]
+  before_action :set_test, only: [:edit, :update]
+  before_action :move_to_index, only: [:edit]
 
   def index
     @tests = Test.order("created_at DESC")
@@ -25,6 +27,11 @@ class TestsController < ApplicationController
   end
 
   def update
+    if @test.update(test_params)
+      redirect_to student_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -33,5 +40,15 @@ class TestsController < ApplicationController
   private
   def test_params
     params.require(:test).permit(:test_name_id, :japanese_score, :japanese_average_score, :mathematics_score, :mathematics_average_score,  :english_score, :english_average_score, :sosial_score, :sosial_average_score, :science_score, :science_average_score, :total_score, :rank).merge(student_id: current_student.id)
+  end
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
+
+  def move_to_index
+    return if current_student == @test.student
+
+    redirect_to action: :index
   end
 end

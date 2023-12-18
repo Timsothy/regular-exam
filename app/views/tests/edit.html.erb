@@ -1,0 +1,65 @@
+<div class='test'>
+  <div class='sidebar'>
+    <%= render 'shared/sidebar' %>
+  </div>
+  <div class='test-main'>
+    <h2 class="test-title">テストの結果を入力</h2>
+    <%= form_with model: @test, local:true do |form| %>
+      <div class="weight-bold-text">
+          テスト名
+      </div>
+      <%= form.collection_select(:test_name_id, TestName.all, :id, :name, {}, {class:"test-name-select"}) %>
+      <div class="weight-bold-text">
+          国語(得点)
+      </div>
+      <%= form.text_field :japanese_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          国語(平均点)
+      </div>
+      <%= form.text_field :japanese_average_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          数学(得点)
+      </div>
+      <%= form.text_field :mathematics_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          数学(平均点)
+      </div>
+      <%= form.text_field :mathematics_average_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          英語(得点)
+      </div>
+      <%= form.text_field :english_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          英語(平均点)
+      </div>
+      <%= form.text_field :english_average_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          社会(得点)
+      </div>
+      <%= form.text_field :sosial_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          社会(平均点)
+      </div>
+      <%= form.text_field :sosial_average_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          理科(得点)
+      </div>
+      <%= form.text_field :science_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          理科(平均点)
+      </div>
+      <%= form.text_field :science_average_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          合計点(5科)
+      </div>
+      <%= form.text_field :total_score, class:"tests-text" %>
+      <div class="weight-bold-text">
+          順位
+      </div>
+      <%= form.text_field :rank, class:"tests-text" %>
+      <div class="ragistration-btn">
+          <%= form.submit "登録する" ,class:"btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

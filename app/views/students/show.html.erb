@@ -3,9 +3,6 @@
     <%= render 'shared/sidebar' %>
   </div>
   <div class='main'>
-    <div class="new-test">    
-      <%= link_to 'テスト登録', new_test_path %>
-    </div>
     <div class="student-show">
       <table>
         <% @tests.each do |test| %>
@@ -35,6 +32,9 @@
         </tr>
         <tr>
           <td>合計</td><td><%= test.total_score %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= link_to 'テスト編集', edit_test_path(test), method: :get %></td>
         </tr>
         <% end %>
       </table>
