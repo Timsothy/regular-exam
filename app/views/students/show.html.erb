@@ -38,8 +38,10 @@
           </tr>
         </table>
         <div class="option">
-          <%= link_to '編集', edit_test_path(test), method: :get , class:"edit-btn" %>
-          <%= link_to '削除', test_path(test), method: :delete, class:"delete-btn" %>
+          <% if student_signed_in? && current_student.id == test.student_id %>
+            <%= link_to '編集', edit_test_path(test), method: :get , class:"edit-btn" %>
+            <%= link_to '削除', test_path(test), method: :delete, class:"delete-btn" %>
+          <% end %>
         </div>
       <% end %>
     </div>

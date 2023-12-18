@@ -10,5 +10,4 @@ class TestName < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :tests
-
-  end
+end

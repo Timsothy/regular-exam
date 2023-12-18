@@ -6,10 +6,9 @@ class Grade < ActiveHash::Base
     { id: 3, name: '中学3年' },
     { id: 4, name: '高校1年' },
     { id: 5, name: '高校2年' },
-    { id: 6, name: '高校3年' },
+    { id: 6, name: '高校3年' }
   ]
 
   include ActiveHash::Associations
   has_many :students
-
-  end
+end
