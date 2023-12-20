@@ -4,14 +4,11 @@
   </div>
   <div class='student'>
     <% if student_signed_in? %>
-      <div class="user_nav grid-6">
-        <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
-      </div>
+        <%= link_to "#{current_student.last_name}#{current_student.first_name}", student_path(current_student), class: "nav" %>
+        <%= link_to "ログアウト", destroy_student_session_path, method: :delete, class: "nav" %>
     <% else %>
-      <div class="grid-6">    
-        <%= link_to '生徒登録', new_student_registration_path, class: "sign-up" %>
-        <%= link_to 'ログイン', new_student_session_path, class: "login" %>
-      </div>
+        <%= link_to '生徒登録', new_student_registration_path, class: "nav" %>
+        <%= link_to 'ログイン', new_student_session_path, class: "nav" %>
     <% end %>
   </div>
 </div>

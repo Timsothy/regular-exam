@@ -3,47 +3,49 @@
     <%= render 'shared/sidebar' %>
   </div>
   <div class='main'>
-    <div class="student-show">
-      <% @tests.each do |test| %>
-        <table class="test-table">
-          <tr>
-            <th colspan="4"><%= test.test_name.name %></th>
-          </tr>
-          <tr>
-            <td colspan="4"><%= @student.last_name_kana %><%= @student.first_name_kana %></td>
-          </tr>
-          <tr>
-            <td colspan="4"><%= @student.last_name %><%= @student.first_name %></td>
-          </tr>
-          <tr>
-            <td>国語</td><td><%= test.japanese_score %></td><td>平均点</td><td><%= test.japanese_average_score %></td>
-          </tr>
-          <tr>
-            <td>数学</td><td><%= test.mathematics_score %></td><td>平均点</td><td><%= test.mathematics_average_score %></td>
-          </tr>
-          <tr>
-            <td>英語</td><td><%= test.english_score %></td><td>平均点</td><td><%= test.english_average_score %></td>
-          </tr>
-          <tr>
-            <td>社会</td><td><%= test.sosial_score %></td><td>平均点</td><td><%= test.sosial_average_score %></td>
-          </tr>
-          <tr>
-            <td>理科</td><td><%= test.science_score %></td><td>平均点</td><td><%= test.science_average_score %></td>
-          </tr>
-          <tr>
-            <td>合計</td><td colspan="3"><%= test.total_score %></td>
-          </tr>
-          <tr>
-            <td>順位</td><td colspan="3"><%= test.rank %></td>
-          </tr>
-        </table>
-        <div class="option">
-          <% if student_signed_in? && current_student.id == test.student_id %>
-            <%= link_to '編集', edit_test_path(test), method: :get , class:"edit-btn" %>
-            <%= link_to '削除', test_path(test), method: :delete, class:"delete-btn" %>
+    <% @tests.each do |test| %>
+      <table class="test-table">
+        <tr>
+          <th colspan="4"><%= test.test_name.name %></th>
+        </tr>
+        <tr>
+          <td colspan="4"><%= @student.last_name_kana %><%= @student.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td colspan="4"><%= @student.last_name %><%= @student.first_name %></td>
+        </tr>
+        <tr>
+          <td>国語</td><td><%= test.japanese_score %></td><td>平均点</td><td><%= test.japanese_average_score %></td>
+        </tr>
+        <tr>
+          <td>数学</td><td><%= test.mathematics_score %></td><td>平均点</td><td><%= test.mathematics_average_score %></td>
+        </tr>
+        <tr>
+          <td>英語</td><td><%= test.english_score %></td><td>平均点</td><td><%= test.english_average_score %></td>
+        </tr>
+        <tr>
+          <td>社会</td><td><%= test.sosial_score %></td><td>平均点</td><td><%= test.sosial_average_score %></td>
+        </tr>
+        <tr>
+          <td>理科</td><td><%= test.science_score %></td><td>平均点</td><td><%= test.science_average_score %></td>
+        </tr>
+        <tr>
+          <td>合計</td><td colspan="3"><%= test.total_score %></td>
+        </tr>
+        <tr>
+          <td>順位</td><td colspan="3"><%= test.rank %></td>
+        </tr>
+      </table>
+      <div class="option">
+        <% if student_signed_in? && current_student.id == test.student_id %>
+          <%= link_to '編集', edit_test_path(test), method: :get , class:"edit-btn" %>
+          <%= link_to '削除', test_path(test), method: :delete, class:"delete-btn" %>
+          <%= link_to(new_test_path, class: "test-btn") do %>
+          <span class="test-btn-text">新規テスト</span>
+          <%= image_tag 'plus-icon.png' , size: '180x50' ,class: "test-btn-icon" %>
           <% end %>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

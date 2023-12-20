@@ -14,7 +14,9 @@
 /* 表 */
 
 table {
-  width: 100%;
+  width: 70%;
+  min-width: 500px;
+  margin: 0 auto;
   border-collapse: collapse;
   text-align: center;
 }

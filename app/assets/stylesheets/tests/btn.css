@@ -1,6 +1,7 @@
 .test-btn {
   width: 120px;
   background: #FFF100;
+  opacity: .6;
   text-align: center;
   border: solid;
   border-width: 2px;
